@@ -20,8 +20,8 @@ spring:
         uri: lb://quiz
         predicates:
         - Path=/quiz/**
-#         filters:
-#         - RewritePath=/quiz(?<segment>/?.*), /$\{segment}
+         filters:
+         - RewritePath=/quiz(?<segment>?.*), $\{segment}
     config:
       discovery:
         enabled: true
