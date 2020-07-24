@@ -21,7 +21,7 @@ spring:
         predicates:
         - Path=/quiz/**
          filters:
-         - RewritePath=/quiz(?<segment>?.*), $\{segment}
+         - RewritePath=/quiz(?<segment>/?.*), /$\{segment}
     config:
       discovery:
         enabled: true
