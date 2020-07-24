@@ -13,19 +13,18 @@ spring:
         uri: lb://flashcard
         predicates:
         - Path=/flashcard/**
-#        filters:
-#        - RewritePath=/flashcard(?<segment>/?.*), /$\{segment}
+        filters:
+        - RewritePath=/flashcard(?<segment>/?.*), /$\{segment}
       # ============================
       - id: quiz
         uri: lb://quiz
         predicates:
         - Path=/quiz/**
+        filters:
+        - RewritePath=/quiz(?<segment>/?.*), /$\{segment}
     config:
       discovery:
         enabled: true
-
-#               filters:
-#        - RewritePath=/quiz(?<segment>/?.*), /$\{segment}
 
 eureka:
   client:
