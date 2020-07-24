@@ -20,6 +20,7 @@ spring:
         uri: lb://quiz
         predicates:
         - Path=/quiz/**
+        - Path=/message/**
 #         filters:
 #         - RewritePath=/quiz(?<segment>/?.*), /$\{segment}
     config:
