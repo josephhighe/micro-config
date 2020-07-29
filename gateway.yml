@@ -14,19 +14,16 @@ spring:
         predicates:
         - Path=/flashcard/**
         filters:
-        - RewritePath=/flashcard(?<segment>/?.*), /$\{segment}
+        - StripPrefix=1
+#        - name: CircuitBreaker
+#          args:
+#            name: flashcard-fallback
+#            fallbackUri: forward:/fallback/flashcard
+            
       # ============================
       - id: quiz
         uri: lb://quiz
         predicates:
         - Path=/quiz/**
-         filters:
-         - RewritePath=/quiz(?<segment>/?.*), /$\{segment}
-    config:
-      discovery:
-        enabled: true
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka
+        filters:
+        - StripPrefix=1
